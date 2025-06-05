@@ -99,18 +99,18 @@
 
     @media (max-width: 768px) {
       header {
-          padding: 10px;
+        padding: 10px;
       }
 
       .redirect-button {
-          top: 10px;
-          right: 10px;
-          font-size: 14px;
+        top: 10px;
+        right: 10px;
+        font-size: 14px;
       }
 
       section {
-          padding: 15px;
-          max-width: 100%;
+        padding: 15px;
+        max-width: 100%;
       }
     }
   </style>
@@ -119,13 +119,13 @@
 
 <header>
   <h1>EMPLOYEE SATISFACTION ANALYSIS DASHBOARD</h1>
-  <a href="{{ url_for('index') }}" class="redirect-button" style="position: absolute">Back to Portfolio</a>
+  <a href="index.html" class="redirect-button">Back to Portfolio</a>
 </header>
 
 <section>
   <h2>Rating Dashboard</h2>
   <div class="content">
-    <img src="{{ url_for('static', filename='images/rating.png') }}" alt=" " style="width: 50%; display: block; margin: auto;">
+    <img src="images/rating.png" alt="Rating Dashboard" style="width: 50%; display: block; margin: auto;">
     <p>➢ This provides a visual analysis of employee ratings across different departments, tracking overall satisfaction trends.</p>
   </div>
 </section>
@@ -133,7 +133,7 @@
 <section>
   <h2>Performance Rating</h2>
   <div class="content">
-    <img src="{{ url_for('static', filename='images/prating.png') }}" alt=" " style="width: 50%; display: block; margin: auto;">
+    <img src="images/prating.png" alt="Performance Rating" style="width: 50%; display: block; margin: auto;">
     <p>➢ This evaluates employee performance ratings in relation to their satisfaction levels, helping identify gaps or excellence zones.</p>
   </div>
 </section>
@@ -141,7 +141,7 @@
 <section>
   <h2>Comparison Chart</h2>
   <div class="content">
-    <img src="{{ url_for('static', filename='images/Comparision.png') }}" alt=" " style="width: 50%; display: block; margin: auto;">
+    <img src="images/Comparision.png" alt="Comparison Chart" style="width: 50%; display: block; margin: auto;">
     <p>➢ Compares satisfaction metrics over different algorithms used in the project on the basis of accuracy. We achieved the best accuracy using Random Forest Algorithm with 93%.</p>
   </div>
 </section>
