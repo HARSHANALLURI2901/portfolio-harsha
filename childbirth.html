@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <title>MODE OF CHILDBIRTH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dashboard to predict the most suitable mode of childbirth using machine learning.">
+  <meta name="keywords" content="childbirth, prediction, ML, dashboard, healthcare AI">
   <style>
     * {
       box-sizing: border-box;
@@ -27,7 +29,6 @@
     .redirect-button {
       position: absolute;
       top: 20px;
-      right: 20px;
       text-decoration: none;
       padding: 8px 12px;
       background-color: #007bff;
@@ -40,29 +41,30 @@
       background-color: #0056b3;
     }
 
+    .portfolio-btn {
+      right: 20px;
+    }
+
+    .paper-btn {
+      right: 180px;
+    }
+
     section {
       padding: 20px;
       border-bottom: 1px solid #e0e0e0;
     }
 
-    /* Collapsible Content Box */
     .content {
       background-color: #fff;
       border-radius: 8px;
       margin-bottom: 20px;
       overflow: hidden;
-      height: 60px;
-      padding: 0 15px;
-      transition: all 0.4s ease;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      padding: 15px;
+      transition: all 0.3s ease;
       cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    /* Title shown initially */
     .content-title {
       font-size: 1.1rem;
       font-weight: bold;
@@ -71,33 +73,13 @@
       padding: 10px 0;
     }
 
-    /* Hidden content */
     .hidden-content {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: 0.3s ease;
-      pointer-events: none;
       display: none;
-      width: 100%;
+      padding-top: 10px;
     }
 
-    /* On hover: expand and show content */
-    .content:hover {
-      height: auto;
-      padding: 20px;
-      background-color: #d3d3d3;
-      align-items: flex-start;
-    }
-
-    .content:hover .hidden-content {
+    .content.active .hidden-content {
       display: block;
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .content:hover .content-title {
-      display: none;
     }
 
     .medium-image,
@@ -107,6 +89,12 @@
       width: 100%;
       height: auto;
       margin-bottom: 15px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .medium-image:hover,
+    .large-image:hover {
+      transform: scale(1.02);
     }
 
     .hidden-content p {
@@ -126,61 +114,67 @@
 <body>
 
   <header>
-  <h1>
-    PREDICTING BEST SUITABLE MODE OF CHILDBIRTH USING MACHINE <br />
-    LEARNING ALGORITHM DASHBOARD
-  </h1>
-  <a href="{{ url_for('index') }}" class="redirect-button" style="right: 20px;">Back to Portfolio</a>
-  <a href="https://drive.google.com/file/d/1KMHLIeP94h6CM6MiOR2HTs_T2p4j9UsW/view?usp=sharing" 
-     target="_blank" 
-     class="redirect-button" 
-     style="right: 180px;">Published Paper</a>
-</header>
+    <h1>
+      PREDICTING BEST SUITABLE MODE OF CHILDBIRTH USING MACHINE <br />
+      LEARNING ALGORITHM DASHBOARD
+    </h1>
+    <a href="index.html" class="redirect-button portfolio-btn">Back to Portfolio</a>
+    <a href="https://drive.google.com/file/d/1KMHLIeP94h6CM6MiOR2HTs_T2p4j9UsW/view?usp=sharing"
+       target="_blank"
+       class="redirect-button paper-btn">Published Paper</a>
+  </header>
 
   <section>
-    <div class="content">
+    <div class="content" onclick="toggleContent(this)">
       <div class="content-title">Login Page</div>
       <div class="hidden-content">
-        <img src="{{ url_for('static', filename='images/login.jpg') }}" alt=" " class="medium-image" />
+        <img src="images/login.jpg" alt="Login interface" class="medium-image" />
         <p>➢ User logs in to our website to predict the mode of childbirth.</p>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="content">
+    <div class="content" onclick="toggleContent(this)">
       <div class="content-title">Model Performance</div>
       <div class="hidden-content">
-        <img src="{{ url_for('static', filename='images/score.jpg') }}" alt="Model performance" class="medium-image" />
-        <p>➢ We achieved an accuracy of 87.5%. Other model metrics such as precision, recall, F1-score, support, and accuracy scores are displayed.</p>
+        <img src="images/score.jpg" alt="Model performance scores" class="medium-image" />
+        <p>➢ We achieved an accuracy of 87.5%. Other metrics like precision, recall, F1-score, and support are also shown.</p>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="content">
+    <div class="content" onclick="toggleContent(this)">
       <div class="content-title">Prediction Dashboard</div>
       <div class="hidden-content">
-        <img src="{{ url_for('static', filename='images/predict.jpg') }}" alt="Prediction dashboard" class="medium-image" />
-        <p>➢ Users enter birth remarks in the text field and click the Predict button. The model then predicts and displays the mode of birth.</p>
+        <img src="images/predict.jpg" alt="Prediction interface" class="medium-image" />
+        <p>➢ Users can input birth-related remarks and get the predicted childbirth mode (e.g., Normal or C-section).</p>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="content">
+    <div class="content" onclick="toggleContent(this)">
       <div class="content-title">Algorithm Accuracies</div>
       <div class="hidden-content">
-        <img src="{{ url_for('static', filename='images/pie.jpg') }}" alt="Pie chart" class="large-image" />
-        <p>➢ The above graph shows the accuracy of different algorithms used in our project through a pie chart.</p><br><br>
-        <img src="{{ url_for('static', filename='images/line.jpg') }}" alt="Line chart" class="large-image" />
-        <p>➢ The above graph shows the accuracy of different algorithms used in our project through a line chart.</p>
+        <img src="images/pie.jpg" alt="Pie chart of algorithm accuracy" class="large-image" />
+        <p>➢ Accuracy of different algorithms is illustrated in a pie chart.</p><br>
+        <img src="images/line.jpg" alt="Line graph of algorithm accuracy" class="large-image" />
+        <p>➢ Accuracy comparison over different models is also shown using a line graph.</p>
       </div>
     </div>
   </section>
+
   <footer>
     <p>&copy; 2025 Harsha - Healthcare Data Insights</p>
   </footer>
+
+  <script>
+    function toggleContent(section) {
+      section.classList.toggle("active");
+    }
+  </script>
 
 </body>
 </html>
